@@ -1,0 +1,219 @@
+﻿<!DOCTYPE html>
+
+<html lang="en" xmlns="http://www.w3.org/1999/xhtml">
+<head>
+    <meta charset="utf-8" />
+    <title>Состояние службы</title>
+    <link type="text/css" href="/Content/bootstrap.min.css" rel="stylesheet" />
+    <script src="/Scripts/jquery-2.1.4.min.js"></script>
+    <script src="/Scripts/bootstrap.min.js"></script>
+    <script src="/Scripts/knockout-3.3.0.debug.js"></script>
+    <script src="/Scripts/knockout-bootstrap.min.js"></script>
+
+    <style type="text/css">
+        .logPanel {
+            display: block;
+            z-index: 1002;
+            position: fixed;
+            top: 10px;
+            left: 10px;
+            right: 10px;
+        }
+
+        .logContent {
+            width: auto;
+            height: 500px;
+            overflow: scroll;
+        }
+        span.warning {
+            background: #ffcc66;
+        }
+        
+        span.default {
+        }
+        span.error {
+            background: #ff9999;
+        }
+        ._list_group {
+            margin-top: 20px;
+        }
+        ._btn {
+            margin: 15px;
+        }
+        dt:not(:first-child) {
+            margin: 10px;
+        }
+        dd {
+            margin-top: 10px;
+        }
+        dl {
+            margin: 30px;
+        }
+        #_textArea {
+           resize:vertical;
+        }
+    </style>
+</head>
+<body>   
+    <div class="container">
+        <div class="_alert" style="position: fixed; top: 5px; left: 15px; right: 15px; z-index: 9999">
+            <div data-bind="foreach: alerts">
+                <div data-bind="alert: $data" role="alert"></div>
+            </div>
+        </div>
+        <br/>
+        <div>
+            <a style="margin-bottom: 10px;" class="btn btn-primary" data-bind="attr:{href:'/status'}">Назад</a>
+        </div>
+        
+        <h3 data-bind="text:id"></h3>
+        <ul class="nav nav-tabs">
+            <li role="presentation" data-bind="css:{'active':isCurrentStateTab}"><a data-bind="click:function(){isCurrentStateTab(true);}">Текущее состояние</a></li>
+            <li role="presentation" data-bind="css:{'active':isVersionTab}"><a data-bind="click:function(){isVersionTab(true);}">Версии</a></li>
+            <li role="presentation" data-bind="css:{'active':isLogTab}"><a data-bind="click:function(){isLogTab(true);}">Логи</a></li>
+            <li role="presentation" data-bind="css:{'active':isSettingTab}"><a data-bind="click:function(){isSettingTab(true);}">Настройки</a></li>
+        </ul>
+
+        <div data-bind="with:currentStateModel">
+            <div data-bind="if:content()">
+                <br/>
+                <div class="btn btn-primary" data-bind="click:load">Обновить</div>
+                <dl class="dl-horizontal">
+
+                    <dt>Id:</dt>
+                    <dd>
+                        <span data-bind="text:content().id"></span>
+                    </dd>
+
+                    <dt>Version:</dt>
+                    <dd>
+                        <span data-bind="css: compareVersions(content().activeVersion() , content().version()) < 0 ? 'warning':'default'">
+                                <span data-bind="text:content().version"></span>
+                            </span>
+                    </dd>
+
+                    <dt>Active Version:</dt>
+                    <dd>
+                        <span data-bind="css: compareVersions(content().activeVersion() , content().version()) < 0 ? 'warning':'default'">
+                                <span data-bind="text:content().activeVersion">
+                                </span>
+                            </span>
+                    </dd>
+
+                    <dt>Running:</dt>
+                    <dd>
+                        <span data-bind="css: content().isAuto() == false ? 'error' : 'default'">
+                            <span data-bind="text:content().isRun()"></span>
+                            </span>
+                   </dd>
+
+                    <dt>IsAuto:</dt>
+                    <dd>
+
+                        <span data-bind="css: content().isAuto() == false ? 'warning' : 'default'">
+                                <span data-bind="text:content().isAuto()"></span>
+                            </span>
+                    </dd>
+
+                    <dt>IsStop:</dt>
+                    <dd>
+                            <span data-bind="text:content().isManualStop()"></span>
+                    </dd>
+
+                    <dt>Url:</dt>
+                    <dd>
+                        <span data-bind="text:content().url"></span>
+                        <a target="_blank" data-bind="attr:{href:content().url()+'help'}">Help page</a>
+                    </dd>
+                    <dt>Action:</dt>
+                    <dd>
+                        <div>
+                            <a href="#" data-toggle="tooltip" data-placement="top" title="Stop"><span class="btn btn-default glyphicon glyphicon-off" data-bind="click:stop"></span></a>
+                            <a href="#" data-toggle="tooltip" data-placement="top" title="Start"><span class="btn btn-default glyphicon glyphicon-play-circle" data-bind="click:start"></span></a>
+                            <a href="#" data-toggle="tooltip" data-placement="top" title="Set Active"><span class="btn btn-default glyphicon glyphicon-upload" data-bind="click:setActive"></span></a>
+                            <a href="#" data-toggle="tooltip" data-placement="top" title="Remove Active"><span class="btn btn-default glyphicon glyphicon-download" data-bind="click:removeActive"></span></a>
+                        </div>
+                    </dd>
+                </dl>
+            </div>
+            </div>
+       
+        <div data-bind="with:versionModel" class="_list_group">
+            <a href="#" class="list-group-item disabled">
+                Доступные версии
+            </a>
+            <ul class="list-group " data-bind="foreach:versions">
+                <li class="list-group-item">
+                    <span data-bind="text: $data"></span>
+                    <button data-bind="click:$parent.start" class="btn btn-primary _btn">Запустить</button>
+                </li>
+            </ul>
+
+        </div>
+        <div data-bind="with:logModel">
+            <table class="table table-hover">
+                <thead>
+                <tr>
+                    <th>Id</th>
+                    <th></th>
+                </tr>
+                </thead>
+                <tbody data-bind="foreach:files">
+                <tr>
+                    <td><a data-bind="text:$data,attr:{href:'/log/file/'+$data}"></a></td>
+                    <td><button class="btn btn-primary" data-bind="click:$parent.getLog">Посмотреть</button></td>
+                </tr>
+                </tbody>
+            </table>
+            <div class="jumbotron logPanel" data-bind="visible:content()">
+                <button class="btn" data-bind="click:function(){content('');}">Закрыть</button>
+                <br/>
+                <span data-bind="text:file"></span>
+                <pre class="logContent" data-bind="text:content"></pre>
+            </div>
+        </div>
+        <div data-bind="with:settingModel">
+            <table data-bind="beforeUnloadText: beforeUnloadPrompt" class="table table-hover">
+                <thead>
+                <tr>
+                    <th>Ключ</th>
+                    <th>Значение</th>
+                    <th>Действия</th>
+                </tr>
+                </thead>
+                <tbody data-bind="foreach:settingArray">
+                <tr>
+                    <td><input class="form-control" data-bind="value:key, attr: {disabled: isDisabled }"/></td>
+                    <td><textarea class="form-control" id ="_textArea" rows="1" data-bind="textInput:value, attr: {disabled: isDisabled , rows:textAreaSize }"></textarea></td>
+                    <td>
+                        <a href="#" data-toggle="tooltip" data-placement="top" title="Update">
+                            <span class="btn btn-default glyphicon glyphicon-refresh" data-bind ="click:isTriggerUpdate" ></span>
+                        </a>
+                        <a href="#" data-toggle="tooltip" data-placement="top" title="Delete">
+                            <span class="btn btn-default glyphicon glyphicon-remove" data-bind="click:$parent.remove" ></span>
+                        </a>
+                        <a href="#" data-toggle="tooltip" data-placement="top" title="Up">
+                            <span class="btn btn-default glyphicon glyphicon-chevron-down" data-bind="click:sizeUp" ></span>
+                        </a>
+                        <a href="#" data-toggle="tooltip" data-placement="top" title="Down">
+                            <span class="btn btn-default glyphicon glyphicon-chevron-up" data-bind="click:sizeDown,visible: textAreaSize() > 10"></span>
+                        </a>
+                    </td>
+                </tr>
+                </tbody>
+            </table>
+            <button class="btn btn-primary" data-bind="click:add">Добавить</button>
+            <button id="saveButton" class="btn btn-primary" data-bind="click:save,attr: {disabled: isDisabled }" >Сохранить изменения</button>
+        </div>
+</div>
+
+    <!--<div id="Debug">
+        <div data-bind="text : ko.toJSON($data)">           
+        </div>
+    </div>-->
+
+<script src="/Scripts/App/Resource.js"></script>
+<script src="/Scripts/App/Service.js"></script>
+<script src="/Scripts/App/Bundle.js"></script>
+</body>
+</html>

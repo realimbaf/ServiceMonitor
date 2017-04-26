@@ -1,0 +1,86 @@
+﻿@using System.Linq
+@using System.Web.Http.Controllers
+@using System.Web.Http.Description
+@using System.Collections.ObjectModel
+@using Owin
+@using Wiki.Api.Help
+
+@model  dynamic
+
+@{
+    ILookup<HttpControllerDescriptor, ApiDescription> apiGroups = ((Collection<ApiDescription>)Model).OrderBy(x => x.ActionDescriptor.ControllerDescriptor.GetIndex()).ToLookup(api => api.ActionDescriptor.ControllerDescriptor);
+
+}
+
+<!DOCTYPE HTML>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width" />
+        <title>Web API</title>
+        <script type="text/javascript">
+            WebFontConfig = {
+                google: { families: ['PT+Sans:400,700:latin,cyrillic'] }
+            };
+            (function () {
+                var wf = document.createElement('script');
+                wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+                    '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+                wf.type = 'text/javascript';
+                wf.async = 'true';
+                var s = document.getElementsByTagName('script')[0];
+                s.parentNode.insertBefore(wf, s);
+            })();
+        </script>
+    </head>
+    <body>
+        <link type="text/css" href="/help/Content/baseHelp.css" rel="stylesheet" />
+        @Raw(HelpExtension.GetCss())
+        
+        <h1 class="main_title">Web API</h1>
+        <div class="wrapper_subs">
+            <h2>Введение</h2>
+            <p>
+                Главное описание API методов
+            </p>
+        </div>
+
+        <div class="main_wrapper">
+            @foreach (var group in apiGroups)
+            {
+                @Include("Help.ModelView.ApiGroup.cshtml", group)
+                @*var controllerDocumentation = ViewBag.DocumentationProvider != null ?
+                        ViewBag.DocumentationProvider.GetDocumentation(group.Key) : null;
+
+                    <h2 id="@group.Key.ControllerName">@group.Key.ControllerName</h2>
+                if (!string.IsNullOrEmpty(controllerDocumentation))
+                {
+                    <p>@controllerDocumentation</p>
+                }
+                    <table class="help-page-table">
+                        <thead>
+                        <tr><th>API</th><th>Description</th></tr>
+                        </thead>
+                        <tbody>
+                        @foreach (var api in group)
+                        {
+                            <tr>
+                                <td class="api-name"><a href="/help/apidoc/@api.GetFriendlyId()">@api.HttpMethod.Method @api.RelativePath</a></td>
+                                <td class="api-documentation">
+                                    @if (api.Documentation != null)
+                                    {
+                                        <p>@api.Documentation</p>
+                                    }
+                                    else
+                                    {
+                                        <p>No documentation available.</p>
+                                    }
+                                </td>
+                            </tr>
+                        }
+                        </tbody>
+                    </table>*@
+            }
+        </div>
+    </body>
+</html>

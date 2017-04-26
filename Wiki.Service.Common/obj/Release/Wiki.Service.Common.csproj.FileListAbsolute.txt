@@ -1,0 +1,7 @@
+D:\Projects\WikiRepo\Wiki.Services\Wiki.Service.Common\bin\Release\Wiki.Service.Common.dll
+D:\Projects\WikiRepo\Wiki.Services\Wiki.Service.Common\bin\Release\Wiki.Service.Common.pdb
+D:\Projects\WikiRepo\Wiki.Services\Wiki.Service.Common\bin\Release\Newtonsoft.Json.dll
+D:\Projects\WikiRepo\Wiki.Services\Wiki.Service.Common\bin\Release\Newtonsoft.Json.xml
+D:\Projects\WikiRepo\Wiki.Services\Wiki.Service.Common\obj\Release\Wiki.Service.Common.csprojResolveAssemblyReference.cache
+D:\Projects\WikiRepo\Wiki.Services\Wiki.Service.Common\obj\Release\Wiki.Service.Common.dll
+D:\Projects\WikiRepo\Wiki.Services\Wiki.Service.Common\obj\Release\Wiki.Service.Common.pdb

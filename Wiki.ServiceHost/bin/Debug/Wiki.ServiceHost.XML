@@ -1,0 +1,62 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Wiki.ServiceHost</name>
+    </assembly>
+    <members>
+        <member name="T:Wiki.ServiceHost.Helpers.NugetNoadException">
+            <summary>
+            Класс ошибки загрузки nuget пакета
+            </summary>
+        </member>
+        <member name="M:Wiki.ServiceHost.Helpers.NugetNoadException.#ctor(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="message"></param>
+        </member>
+        <member name="M:Wiki.ServiceHost.Helpers.NugetNoadException.#ctor(System.String,System.Exception)">
+            <summary>
+            
+            </summary>
+            <param name="message"></param>
+            <param name="inner"></param>
+        </member>
+        <member name="T:Wiki.ServiceHost.Nuget.AssemblyInfo.ILoader">
+            <summary>
+            Represents interface for loading assembly.
+            </summary>
+        </member>
+        <member name="M:Wiki.ServiceHost.Nuget.AssemblyInfo.ILoader.Load(Wiki.ServiceHost.Model.AssemblyContent)">
+            <summary>
+            Method that is loading assembly.
+            </summary>
+            <param name="assemblyContent"></param>
+        </member>
+        <member name="T:Wiki.ServiceHost.Nuget.AssemblyInfo.IPartOfAssembly">
+            <summary>
+            Represents the description the part of Assembly
+            </summary>
+        </member>
+        <member name="P:Wiki.ServiceHost.Nuget.AssemblyInfo.IPartOfAssembly.PathOfPart">
+            <summary>
+            Property to store file extension.
+            </summary>
+        </member>
+        <member name="M:Wiki.ServiceHost.Nuget.AssemblyInfo.IPartOfAssembly.SaveInFileSystem(Wiki.ServiceHost.Model.AssemblyContent)">
+            <summary>
+            Method of saving of the Assembly on disk.
+            </summary>
+        </member>
+        <member name="M:Wiki.ServiceHost.Nuget.AssemblyInfo.IPartOfAssembly.DeleteInFileSystem(Wiki.ServiceHost.Model.AssemblyContent)">
+            <summary>
+            Method of deleting of the Assembly on disk.
+            </summary>
+        </member>
+        <member name="T:Wiki.ServiceHost.Nuget.AssemblyLoader">
+            <summary>
+            
+            </summary>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,13 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Wiki.ApiClient.Core</name>
+    </assembly>
+    <members>
+        <member name="T:Wiki.ApiClient.Core.BaseClient">
+            <summary>
+            Предоставляет базовый класс для WEB API клиента
+            </summary>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,17 @@
+D:\Projects\WikiRepo\Wiki.Services\Wiki.Service.Configuration\bin\Debug\Wiki.Service.Configuration.dll.config
+D:\Projects\WikiRepo\Wiki.Services\Wiki.Service.Configuration\bin\Debug\Wiki.Service.Configuration.dll
+D:\Projects\WikiRepo\Wiki.Services\Wiki.Service.Configuration\bin\Debug\Wiki.Service.Configuration.pdb
+D:\Projects\WikiRepo\Wiki.Services\Wiki.Service.Configuration\bin\Debug\CarParts.Common.dll
+D:\Projects\WikiRepo\Wiki.Services\Wiki.Service.Configuration\bin\Debug\Newtonsoft.Json.dll
+D:\Projects\WikiRepo\Wiki.Services\Wiki.Service.Configuration\bin\Debug\Owin.dll
+D:\Projects\WikiRepo\Wiki.Services\Wiki.Service.Configuration\bin\Debug\System.Net.Http.Formatting.dll
+D:\Projects\WikiRepo\Wiki.Services\Wiki.Service.Configuration\bin\Debug\System.Web.Http.dll
+D:\Projects\WikiRepo\Wiki.Services\Wiki.Service.Configuration\bin\Debug\Wiki.Core.dll
+D:\Projects\WikiRepo\Wiki.Services\Wiki.Service.Configuration\bin\Debug\CarParts.Common.pdb
+D:\Projects\WikiRepo\Wiki.Services\Wiki.Service.Configuration\bin\Debug\Newtonsoft.Json.xml
+D:\Projects\WikiRepo\Wiki.Services\Wiki.Service.Configuration\bin\Debug\System.Net.Http.Formatting.xml
+D:\Projects\WikiRepo\Wiki.Services\Wiki.Service.Configuration\bin\Debug\System.Web.Http.xml
+D:\Projects\WikiRepo\Wiki.Services\Wiki.Service.Configuration\bin\Debug\Wiki.Core.pdb
+D:\Projects\WikiRepo\Wiki.Services\Wiki.Service.Configuration\bin\Debug\Wiki.Core.xml
+D:\Projects\WikiRepo\Wiki.Services\Wiki.Service.Configuration\obj\Debug\Wiki.Service.Configuration.dll
+D:\Projects\WikiRepo\Wiki.Services\Wiki.Service.Configuration\obj\Debug\Wiki.Service.Configuration.pdb

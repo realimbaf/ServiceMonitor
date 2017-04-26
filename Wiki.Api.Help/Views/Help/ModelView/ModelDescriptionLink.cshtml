@@ -1,0 +1,28 @@
+﻿@using System
+@using Wiki.Api.Help.Controllers.Help.Model
+@using Wiki.Api.Help.Extensions
+@using Wiki.Api.Help.Model
+@model dynamic
+@{
+    if (Model is ComplexTypeModelDescription || Model is EnumTypeModelDescription)
+    {
+        if (Model.ModelType == typeof(Object))
+        {
+            @:Object
+        }
+        else
+        {
+            <a class="spec_lnk" href="/help/model/@Model.Name">@Model.Name</a>
+        }
+    }
+    else if (Model is CollectionModelDescription)
+    {
+        var collectionDescription = Model as CollectionModelDescription;
+        var elementDescription = collectionDescription.ElementDescription;
+        @:Collection of @Include("Help.ModelView.ModelDescriptionLink.cshtml", elementDescription) 
+    }
+    else
+    {
+        @Include("Help.ModelView.ModelDescription.cshtml")
+    }
+}

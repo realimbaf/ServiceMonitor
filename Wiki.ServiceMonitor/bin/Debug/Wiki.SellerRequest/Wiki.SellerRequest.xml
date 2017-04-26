@@ -1,0 +1,44 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Wiki.SellerRequest</name>
+    </assembly>
+    <members>
+        <member name="T:Wiki.SellerRequest.Controllers.SellerRequestController">
+            <summary>
+            Controller for handling seller requests.
+            </summary>
+        </member>
+        <member name="M:Wiki.SellerRequest.Controllers.SellerRequestController.#ctor(Wiki.SellerRequest.Queries.IQueryDispatcher,Wiki.SellerRequest.Dal.ISession)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="dispatcher"></param>
+            <param name="session"></param>
+        </member>
+        <member name="M:Wiki.SellerRequest.Controllers.SellerRequestController.GetSellerRequests">
+            <summary>
+            Method for getting the list of requests.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Wiki.SellerRequest.Controllers.SellerRequestItemsController">
+            <summary>
+            Controller for handling the items of requests.
+            </summary>
+        </member>
+        <member name="M:Wiki.SellerRequest.Controllers.SellerRequestItemsController.#ctor(Wiki.SellerRequest.Queries.IQueryDispatcher,Wiki.SellerRequest.Dal.ISession)">
+            <summary>
+            Constructor.
+            </summary>
+            <param name="dispatcher"></param>
+            <param name="session"></param>
+        </member>
+        <member name="M:Wiki.SellerRequest.Controllers.SellerRequestItemsController.GetSellerItemsRequests">
+            <summary>
+            Method for getting a list of all items for requests.
+            </summary>
+            <returns></returns>
+        </member>
+    </members>
+</doc>

@@ -1,0 +1,563 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Wiki.Core</name>
+    </assembly>
+    <members>
+        <member name="M:Wiki.Core.AbstractContainer`2.Add(`0)">
+            <summary>
+                добавить в коллекцию.
+            </summary>
+            <param name="item">item</param>
+        </member>
+        <member name="M:Wiki.Core.AbstractContainer`2.AddRange(System.Collections.Generic.IEnumerable{`0})">
+            <summary>
+                Добавить сразу несколько
+            </summary>
+            <param name="items">items</param>
+        </member>
+        <member name="M:Wiki.Core.AbstractContainer`2.ReleaseReaderLock">
+            <summary>
+                Освободить доступ на чтение
+            </summary>
+        </member>
+        <member name="T:Wiki.Core.Api.ControllerOrderAttribute">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="M:Wiki.Core.IAttributesItem.Remove(System.String)">
+            <summary>
+            Удалить атрибут
+            
+            </summary>
+            <param key="name">Имя атрибута</param>
+        </member>
+        <member name="M:Wiki.Core.IAttributesItem.Contains(System.String)">
+            <summary>
+            Содержит ли атрибут
+            
+            </summary>
+            <param key="key">Имя атрибута</param>
+            <returns>
+            True - содержит, False - нет
+            </returns>
+        </member>
+        <member name="M:Wiki.Core.IAttributesItem.Clear">
+            <summary>
+            Очистить атрибуты
+            
+            </summary>
+        </member>
+        <member name="P:Wiki.Core.IAttributesItem.HasAttributes">
+            <summary>
+            Есть ли атрибуты у сущности, True - есть, False - нет.
+            
+            </summary>
+        </member>
+        <member name="P:Wiki.Core.IAttributesItem.Count">
+            <summary>
+            Количество параметров
+            
+            </summary>
+        </member>
+        <member name="P:Wiki.Core.IAttributesItem.Item(System.String)">
+            <summary>
+            Доступ к атрибуту по его имени
+            
+            </summary>
+            <param key="name">Имя атрибута</param>
+            <returns>
+            Значение атрибута, если есть; null - если нет.
+            </returns>
+        </member>
+        <member name="M:Wiki.Core.AttributesItem`1.Remove(System.String)">
+            <summary>
+            Удалить атрибут
+            
+            </summary>
+            <param key="name">Имя атрибута</param>
+        </member>
+        <member name="M:Wiki.Core.AttributesItem`1.Clear">
+            <summary>
+            Очистить атрибуты
+            
+            </summary>
+        </member>
+        <member name="M:Wiki.Core.AttributesItem`1.CopyAttributes(Wiki.Core.AttributesItem{`0})">
+            <summary>
+            Скопировать атрибуты из item
+            
+            </summary>
+            <param key="item">Item, чьи параметры надо скопировать</param>
+        </member>
+        <member name="M:Wiki.Core.AttributesItem`1.CopyAttributes(System.Collections.Generic.Dictionary{System.String,System.String})">
+            <summary>
+            Скопировать атрибуты из Hashtable
+            
+            </summary>
+            <param key="table"/>
+        </member>
+        <member name="M:Wiki.Core.AttributesItem`1.CopyAttributes(System.Collections.Generic.Dictionary{System.String,System.String},System.Boolean)">
+            <summary>
+            Скопировать атрибуты из хеша
+            
+            </summary>
+            <param key="table">хеш атрибутов</param><param key="overwriteExisting">True - переписать атрибуты, False - не переписывать</param>
+        </member>
+        <member name="M:Wiki.Core.AttributesItem`1.CopyAttributes(Wiki.Core.AttributesItem{`0},System.Boolean)">
+            <summary>
+            Скопировать атрибуты из item
+            
+            </summary>
+            <param key="item">объект с атрибутами</param><param key="overwriteExisting">True - переписать атрибуты, False - не переписывать</param>
+        </member>
+        <member name="M:Wiki.Core.AttributesItem`1.CloneAttributes">
+            <summary>
+            Клонирует настройки
+            
+            </summary>
+            
+            <returns>
+            Hashtable с настройками
+            </returns>
+        </member>
+        <member name="M:Wiki.Core.AttributesItem`1.GetEnumerator">
+            <summary>
+            Returns an enumerator that iterates through the collection.
+            
+            </summary>
+            
+            <returns>
+            A <see cref="T:System.Collections.Generic.IEnumerator`1"/> that can be used to iterate through the collection.
+            
+            </returns>
+        </member>
+        <member name="P:Wiki.Core.AttributesItem`1.Count">
+            <summary>
+            Количество параметров
+            
+            </summary>
+        </member>
+        <member name="F:Wiki.Core.BusinessObjectCache.BusinessObject.ID">
+            <summary>
+            ID объекта
+            
+            </summary>
+        </member>
+        <member name="F:Wiki.Core.BusinessObjectCache.BusinessObject.Kind">
+            <summary>
+            Тип объекта
+            
+            </summary>
+        </member>
+        <member name="F:Wiki.Core.BusinessObjectCache.BusinessObject.RowID">
+            <summary>
+            ID строки объекта в таблице изменений
+            
+            </summary>
+        </member>
+        <member name="M:Wiki.Core.BusinessObjectCache.BusinessObject.#ctor(System.String,System.Guid,System.Int64,System.Boolean)">
+            <summary>
+            Конструктор
+            
+            </summary>
+            <param name="id">ID объекта</param><param name="objectKind">Тип объекта</param><param name="rowID">ID строки объекта в таблице изменений</param><param name="deleted">признак того что объект удален</param>
+        </member>
+        <member name="T:Wiki.Core.Dto.DtoBase">
+            <summary>
+            Базовый класс транспортного объекта
+            </summary>
+        </member>
+        <member name="M:Wiki.Core.Dto.DtoBase.GetKey">
+            <summary>
+            Возвращает уникальный ключ текущего объекта
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="T:Wiki.Core.EnumInfo">
+            <summary>
+            Предоставляет описание enum
+            </summary>
+        </member>
+        <member name="M:Wiki.Core.EnumInfo.#ctor(System.Object)">
+            <summary>
+            Создает экземпляр EnumInfo с указанным значением
+            </summary>
+            <param name="enumValue"></param>
+        </member>
+        <member name="M:Wiki.Core.EnumInfo.#ctor(System.Type,System.Object)">
+            <summary>
+            Создает экземпляр EnumInfo с указанным значением и типом
+            </summary>
+            <param name="enumType"></param>
+            <param name="value"></param>
+        </member>
+        <member name="M:Wiki.Core.EnumInfo.GetAttributes(System.Type)">
+            <summary>
+            Возвращает аттрибуты указанного типа
+            </summary>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Wiki.Core.EnumInfo.GetInfo(System.Type,System.Type,System.Boolean)">
+            <summary>
+            Возвращиет список описаний enum
+            </summary>
+            <param name="enumType">Тип enum</param>
+            <param name="attributeType"></param>
+            <param name="inherit"></param>
+            <returns></returns>
+        </member>
+        <member name="P:Wiki.Core.EnumInfo.Description">
+            <summary>
+            Gets the description of the current info. (The value of the Description attribute)
+            
+            </summary>
+        </member>
+        <member name="P:Wiki.Core.EnumInfo.EnumType">
+            <summary>
+            Тип энума
+            
+            </summary>
+        </member>
+        <member name="P:Wiki.Core.EnumInfo.EnumValue">
+            <summary>
+            Gets the enum value of the current info.
+            
+            </summary>
+        </member>
+        <member name="P:Wiki.Core.EnumInfo.Name">
+            <summary>
+            Gets the name of the current info. (The value of the DisplayName attribute)
+            
+            </summary>
+        </member>
+        <member name="T:Wiki.Core.EnumInfo`1">
+            <summary>
+            Предоставляет описание enum
+            </summary>
+            <typeparam name="TEnum">тип, инфо о котором надо получить</typeparam>
+        </member>
+        <member name="M:Wiki.Core.EnumInfo`1.#ctor(`0)">
+            <summary>
+            Creates an instance of the EnumTypeInfo class for the specified enum value
+            
+            </summary>
+            <param name="value">Значение enum</param>
+        </member>
+        <member name="M:Wiki.Core.EnumInfo`1.GetInfo">
+            <summary>
+            Gets an array of the EnumTypeInfo objects.
+            
+            </summary>
+            
+            <returns>
+            массив
+            </returns>
+        </member>
+        <member name="P:Wiki.Core.EnumInfo`1.EnumValue">
+            <summary>
+            Gets the enum value of the current info.
+            
+            </summary>
+        </member>
+        <member name="T:Wiki.Core.EventPool.IEventMonitor">
+            <summary>
+            Represent the object which is monitoring the new event exists in source
+            
+            </summary>
+        </member>
+        <member name="M:Wiki.Core.EventPool.IEventMonitor.Start">
+            <summary>
+            Start to monitor
+            
+            </summary>
+        </member>
+        <member name="M:Wiki.Core.EventPool.IEventMonitor.Stop">
+            <summary>
+            Stop to monitor
+            
+            </summary>
+        </member>
+        <member name="E:Wiki.Core.EventPool.IEventMonitor.EventGot">
+            <summary>
+            Occurs when the new event is got
+            
+            </summary>
+        </member>
+        <member name="E:Wiki.Core.EventPool.IEventMonitor.ErrorOccured">
+            <summary>
+            Occurs when the error is got
+            
+            </summary>
+        </member>
+        <member name="F:Wiki.Core.EventPool.ErrorEventArgs.Message">
+            <summary>
+            Сообщение с ошибкой
+            
+            </summary>
+        </member>
+        <member name="M:Wiki.Core.EventPool.ErrorEventArgs.#ctor(System.String)">
+            <summary>
+            ctor
+            
+            </summary>
+            <param name="message">сообщение с ошибкой</param>
+        </member>
+        <member name="P:Wiki.Core.EventPool.DbChangedEventContext.ObjectId">
+            <summary>
+            ID объекта
+            
+            </summary>
+        </member>
+        <member name="P:Wiki.Core.EventPool.DbChangedEventContext.ObjectTypeId">
+            <summary>
+            Тип объекта
+            
+            </summary>
+        </member>
+        <member name="T:Wiki.Core.Extensions.DateTimeExtension">
+            <summary>
+            Расширения для <see cref="T:System.DateTime"/>
+            </summary>
+        </member>
+        <member name="M:Wiki.Core.Extensions.DateTimeExtension.GetDayOfWeek(System.DateTime)">
+            <summary>
+            Возвращает порядковый номер дня недели
+            </summary>
+            <param name="date">Дата</param>
+            <returns></returns>
+        </member>
+        <member name="T:Wiki.Core.Helpers.AsyncHelpers">
+            <summary>
+            Helper for <see cref="T:System.Threading.Tasks.Task"/>
+            </summary>
+        </member>
+        <!-- Некорректный комментарий в формате XML для члена "M:Wiki.Core.Helpers.AsyncHelpers.RunSync(System.Func{System.Threading.Tasks.Task})" проигнорирован -->
+        <!-- Некорректный комментарий в формате XML для члена "M:Wiki.Core.Helpers.AsyncHelpers.RunSync``1(System.Func{System.Threading.Tasks.Task{``0}})" проигнорирован -->
+        <member name="M:Wiki.Core.Helpers.WikiObjectHelpers.GetObjectTypeId(System.Type)">
+            <summary>
+            Возвращает Id типа бизнесс объекта
+            </summary>
+            <param name="type"></param>
+            <returns></returns>
+        </member>
+        <member name="F:Wiki.Core.ItemEventArgs.Action">
+            <summary>
+            Действие над объектом
+            
+            </summary>
+        </member>
+        <member name="M:Wiki.Core.ItemEventArgs.#ctor(Wiki.Core.IWikiItem,Wiki.Core.IWikiItem,Wiki.Core.ItemAction)">
+            <summary>
+            Конструктор
+            
+            </summary>
+            <param name="item">объект</param><param name="oldItem">Старый объект</param><param name="action">Действие над объектом</param>
+        </member>
+        <member name="P:Wiki.Core.ItemEventArgs.Item">
+            <summary>
+            Новый объект
+            
+            </summary>
+        </member>
+        <member name="P:Wiki.Core.ItemEventArgs.OldItem">
+            <summary>
+            Старый объект, может быть null.
+            
+            </summary>
+        </member>
+        <member name="M:Wiki.Core.ItemEventArgs`2.#ctor(`0,`0,Wiki.Core.ItemAction,System.Boolean)">
+            <summary>
+            Конструктор
+            
+            </summary>
+            <param name="item">объект</param><param name="oldItem">Старый объект</param><param name="action">Действие над объектом</param>
+        </member>
+        <member name="M:Wiki.Core.ItemEventArgs`2.ToString">
+            <summary>
+            Описание события
+            
+            </summary>
+            
+            <returns/>
+        </member>
+        <member name="P:Wiki.Core.ItemEventArgs`2.TItemObject">
+            <summary>
+            Новый объект
+            
+            </summary>
+        </member>
+        <member name="P:Wiki.Core.ItemEventArgs`2.OldTItemObject">
+            <summary>
+            Старый объект, может быть null.
+            
+            </summary>
+        </member>
+        <member name="T:Wiki.Core.Extensions.ReaderWriterLockSlimExtensions">
+            <summary>
+            Static helper class with usefull extensions methods for ReaderWriterLockSlim.
+            This class introduces RAII idiom (with using statement) for reading and writing locking
+            </summary>
+        </member>
+        <member name="M:Wiki.Core.Extensions.ReaderWriterLockSlimExtensions.UseReadLock(System.Threading.ReaderWriterLockSlim)">
+            <summary>
+            Helper class that return IDisposable object for reading operations.
+            Calling Dispose on return value will call ExitReadLock.
+            </summary>
+        </member>
+        <member name="M:Wiki.Core.Extensions.ReaderWriterLockSlimExtensions.UseWriteLock(System.Threading.ReaderWriterLockSlim)">
+            <summary>
+            Helper class that return IDisposable object for writing operations.
+            Calling Dispose on return value will call ExitWriteLock.
+            </summary>
+        </member>
+        <member name="M:Wiki.Core.Extensions.ReaderWriterLockSlimExtensions.UseUpgradeableLock(System.Threading.ReaderWriterLockSlim)">
+            <summary>
+            Helper class that return IDisposable object for upgradeable operations.
+            Calling Dispose on return value will call ExitUpgradeableLock.
+            </summary>
+        </member>
+        <member name="T:Wiki.Core.Extensions.ReaderWriterLockSlimExtensions.DisposeActionWrapper">
+            <summary>
+            Internal class that helps implement RAII behavior
+            </summary>
+        </member>
+        <member name="M:Wiki.Core.ResolveItemEventArgs`2.#ctor(`1)">
+            <summary>
+            Конструктор
+            
+            </summary>
+            <param name="id">id, по ктором надо произвести поиск</param>
+        </member>
+        <member name="P:Wiki.Core.ResolveItemEventArgs`2.ItemId">
+            <summary>
+            Id для поиска
+            
+            </summary>
+        </member>
+        <member name="P:Wiki.Core.ResolveItemEventArgs`2.ResolvedItem">
+            <summary>
+            Найденный объект
+            
+            </summary>
+        </member>
+        <member name="P:Wiki.Core.ResolveItemEventArgs`2.IsResolved">
+            <summary>
+            Найден объект или нет
+            
+            </summary>
+        </member>
+        <member name="T:Wiki.Core.Scheduler.SchedulerTime">
+            <summary>
+            Предоставляет класс для определения времени срабатывания шедулера
+            </summary>
+        </member>
+        <member name="M:Wiki.Core.Scheduler.SchedulerTime.#ctor(System.String,System.String)">
+            <summary>
+            Создает новый экземпляр
+            </summary>
+            <param name="days">Дни недели (строка из 7 знаков). <example>1111100</example></param>
+            <param name="times">Список времени</param>
+            <exception cref="T:System.ArgumentException">Возникает, если строка с маской дней не равна 7 символам</exception>
+        </member>
+        <member name="M:Wiki.Core.Scheduler.SchedulerTime.GetNextTime(System.Nullable{System.DateTime})">
+            <summary>
+            Получить следующее время срабатывания или null - если оно не наспупит.
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="P:Wiki.Core.Scheduler.SchedulerTime.Days">
+            <summary>
+            Маска дней недели
+            </summary>
+        </member>
+        <member name="P:Wiki.Core.Scheduler.SchedulerTime.TimesStr">
+            <summary>
+            Список времени
+            </summary>
+        </member>
+        <member name="P:Wiki.Core.Scheduler.SchedulerTime.Times">
+            <summary>
+            Список времени срабатывания
+            </summary>
+        </member>
+        <member name="P:Wiki.Core.Scheduler.SchedulerTime.NextTime">
+            <summary>
+            Следующее время срабатывания или null - если оно не наспупит.
+            </summary>
+        </member>
+        <member name="T:Wiki.Core.Scheduler.ShedulerBase">
+            <summary>
+            Базовая реализация таймера
+            </summary>
+        </member>
+        <member name="M:Wiki.Core.Scheduler.ShedulerBase.Start">
+            <summary>
+            Запускает таймер.
+            </summary>
+        </member>
+        <member name="M:Wiki.Core.Scheduler.ShedulerBase.Stop">
+            <summary>
+            Останавливает таймер.
+            </summary>
+        </member>
+        <member name="M:Wiki.Core.Scheduler.ShedulerBase.TimerTick">
+            <summary>
+            Метод, вызываемый при срабатывании таймера.
+            </summary>
+        </member>
+        <member name="M:Wiki.Core.Scheduler.ShedulerBase.ProcessError(System.Exception)">
+            <summary>
+            Обработка исключения таймера вызванное в <see cref="M:Wiki.Core.Scheduler.ShedulerBase.TimerTick"/>.
+            </summary>
+            <param name="exception"></param>
+        </member>
+        <member name="P:Wiki.Core.Scheduler.ShedulerBase.Interval">
+            <summary>
+            Возвращает вмемя в миллисекундах, через которое будет срабатывать таймер. 
+            По умолчанию 5 минут.
+            </summary>
+        </member>
+        <member name="P:Wiki.Core.Scheduler.ShedulerBase.StartTimeout">
+            <summary>
+            Возвращает вмемя (в миллисесундах) через которое произойдет первое срабатывание таймера.
+            </summary>
+        </member>
+        <member name="T:Wiki.Core.Scheduler.TimeUpload">
+            <summary>
+            Предоставляет время срабатывания шедулера
+            </summary>
+        </member>
+        <member name="M:Wiki.Core.Scheduler.TimeUpload.ParseTime(System.String)">
+            <summary>
+            Распарсить время
+            </summary>
+            <param name="time">Строка времени <example>13:24</example></param>
+            <returns></returns>
+        </member>
+        <member name="M:Wiki.Core.Scheduler.TimeUpload.Parse(System.String)">
+            <summary>
+            Распарсить строку со списком 
+            </summary>
+            <param name="time">Строка времени <example>13:24;14:20</example></param>
+            <returns></returns>
+        </member>
+        <member name="P:Wiki.Core.Scheduler.TimeUpload.Hour">
+            <summary>
+            Часы
+            </summary>
+        </member>
+        <member name="P:Wiki.Core.Scheduler.TimeUpload.Minutes">
+            <summary>
+            Минуты
+            </summary>
+        </member>
+        <member name="P:Wiki.Core.Scheduler.TimeUpload.MinutesOfDay">
+            <summary>
+            Количество минут от начала дня
+            </summary>
+        </member>
+    </members>
+</doc>

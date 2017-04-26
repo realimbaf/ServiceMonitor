@@ -1,0 +1,46 @@
+﻿@using System.Linq
+@using System.Web.Http.Controllers
+@using System.Web.Http.Description
+@using System.Collections.ObjectModel
+@using Owin
+@using Wiki.Api.Help
+
+@model  Wiki.Api.Help.Model.HelpPageApiModel
+
+@{
+    
+    var description = Model.ApiDescription;
+    var title = description.HttpMethod.Method + " " + description.RelativePath;
+}
+
+<!DOCTYPE HTML>
+<html lang="en">
+    <head>
+        <meta charset="utf-8" />
+        <meta name="viewport" content="width=device-width" />
+        <title>@title</title>
+        <script type="text/javascript">
+            WebFontConfig = {
+                google: { families: ['PT+Sans:400,700:latin,cyrillic'] }
+            };
+            (function () {
+                var wf = document.createElement('script');
+                wf.src = ('https:' == document.location.protocol ? 'https' : 'http') +
+                    '://ajax.googleapis.com/ajax/libs/webfont/1/webfont.js';
+                wf.type = 'text/javascript';
+                wf.async = 'true';
+                var s = document.getElementsByTagName('script')[0];
+                s.parentNode.insertBefore(wf, s);
+            })();
+        </script>
+    </head>
+    <body>
+        <link type="text/css" href="/help/Content/baseHelp.css" rel="stylesheet" />
+        @Raw(HelpExtension.GetCss())
+        <a href="/help" class="back_lnk">&lArr;&nbsp;Home</a>
+        <div class="clear"></div>
+        <div class="main_wrapper">
+            @Include("Help.ModelView.HelpPageApiModel.cshtml")
+        </div>
+    </body>
+</html>

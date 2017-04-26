@@ -1,0 +1,33 @@
+<?xml version="1.0"?>
+<package xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <metadata>
+    <dependencies>
+      <group targetFramework="net45">
+        <dependency id="CarParts.Common" version="1.0.15177.01" />
+        <dependency id="Microsoft.AspNet.WebApi.Client" version="5.2.3" />
+        <dependency id="Microsoft.AspNet.WebApi.Core" version="5.2.3" />
+        <dependency id="Newtonsoft.Json" version="6.0.4" />
+        <dependency id="Owin" version="1.0" />
+      </group>
+    </dependencies>
+    <id>TestLib</id>
+    <version>1.0.0.17</version>
+    <title>TestLib</title>
+    <authors>LAF</authors>
+    <owners>LAF</owners>
+    <description>Тестовый пакет сервиса</description>
+    <language />
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <developmentDependency>false</developmentDependency>
+    <releaseNotes>
+Version 1.0.15147 (27.05.2015)
+Create new package
+    </releaseNotes>
+    <copyright>Copyright ©  2015</copyright>
+  </metadata>
+  <files>
+    <file src="bin\Debug\*.dll" target="lib\net45" />
+    <file src="bin\Debug\*.pdb" target="lib\net45" />
+    <file src="bin\Debug\TestLib.dll.config" target="lib\net45" />
+  </files>
+</package>

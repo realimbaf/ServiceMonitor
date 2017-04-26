@@ -1,0 +1,63 @@
+﻿@model Wiki.Api.Help.Model.HelpPageApiModel
+@{
+    var description = Model.ApiDescription;
+
+}
+
+<h1>@description.HttpMethod.Method @description.RelativePath</h1>
+
+<p>@description.Documentation</p>
+
+<h2 class="filial_title">Request Information</h2>
+
+<h3 class="">URI Parameters</h3>
+@Include("Help.ModelView.Parameters.cshtml", Model.UriParameters)
+
+<h3>Body Parameters</h3>
+<span>@Model.RequestDocumentation</span>
+
+@if (Model.RequestModelDescription != null)
+{
+    @Include("Help.ModelView.ModelDescriptionLink.cshtml", Model.RequestModelDescription)
+    if (Model.RequestBodyParameters != null)
+    {
+        @Include("Help.ModelView.Parameters.cshtml", Model.RequestBodyParameters)
+
+    }
+}
+else
+{
+    <span>None.</span>
+}
+
+@if (Model.SampleRequests.Count > 0)
+{
+    <h3>Request Formats</h3>
+    @Include("Help.ModelView.Samples.cshtml", Model.SampleRequests)
+
+}
+
+<h2 class="filial_title">Response Information</h2>
+
+<h3>Resource Description</h3>
+@description.ResponseDescription.Documentation
+
+@if (Model.ResourceDescription != null)
+{
+    @Include("Help.ModelView.ModelDescriptionLink.cshtml", Model.ResourceDescription)
+    if (Model.ResourceProperties != null)
+    {
+        @Include("Help.ModelView.Parameters.cshtml", Model.ResourceProperties)
+    }
+}
+else
+{
+    <span>None.</span>
+}
+
+@if (Model.SampleResponses.Count > 0)
+{
+    <h3>Response Formats</h3>
+    @Include("Help.ModelView.Samples.cshtml", Model.SampleResponses)
+
+}

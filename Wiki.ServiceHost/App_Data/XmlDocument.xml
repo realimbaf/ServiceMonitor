@@ -1,0 +1,31 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Wiki.ServiceHost</name>
+    </assembly>
+    <members>
+        <member name="T:Wiki.ServiceHost.Nuget.AssemblyLoader">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="T:Wiki.ServiceHost.Nuget.NugetNoadException">
+            <summary>
+            Класс ошибки загрузки nuget пакета
+            </summary>
+        </member>
+        <member name="M:Wiki.ServiceHost.Nuget.NugetNoadException.#ctor(System.String)">
+            <summary>
+            
+            </summary>
+            <param name="message"></param>
+        </member>
+        <member name="M:Wiki.ServiceHost.Nuget.NugetNoadException.#ctor(System.String,System.Exception)">
+            <summary>
+            
+            </summary>
+            <param name="message"></param>
+            <param name="inner"></param>
+        </member>
+    </members>
+</doc>

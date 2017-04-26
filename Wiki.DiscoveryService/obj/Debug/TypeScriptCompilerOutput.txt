@@ -1,0 +1,2 @@
+D:\Projects\WikiRepo\Wiki.Services\Wiki.DiscoveryService\Scripts\App\HostService.js
+D:\Projects\WikiRepo\Wiki.Services\Wiki.DiscoveryService\Scripts\App\Resource.js

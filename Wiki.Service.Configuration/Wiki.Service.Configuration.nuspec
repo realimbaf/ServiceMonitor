@@ -1,0 +1,38 @@
+<?xml version="1.0"?>
+<package xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <metadata>
+    <dependencies>
+      <group targetFramework="net45">
+        <dependency id="CarParts.Common" version="[1.0.15303.03,1.1)" />
+        <dependency id="Wiki.Core" version="[1.0.15282.10,1.1)" />
+        <dependency id="Microsoft.AspNet.WebApi.Core" version="[5.2.3,5.3)" />
+        <dependency id="Owin" version="1.0" />
+      </group>
+    </dependencies>
+    <id>Wiki.Service.Configuration</id>
+    <version>1.0.16140.01</version>
+    <title>Wiki.Service.Configuration</title>
+    <authors>LAF</authors>
+    <owners>LAF</owners>
+    <description>Configuration for Wiki services</description>
+    <language />
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <developmentDependency>false</developmentDependency>
+    <releaseNotes>
+      Version 1.0.15310 (06.11.2015)
+      [+] Added method Remove key and updated CarParts.Common
+      Version 1.0.15202 (21.07.2015)
+      [+] Added WikiExceptionFilterAttribute
+      Version 1.0.15169 (18.06.2015)
+      [+] ConfigurationContainer.SetId -> internal
+      Version 1.0.15167 (09.06.2015)
+      [+] Added ServiceConfiguration
+      Version 1.0.15160 (09.06.2015)
+      [+]Create new package
+    </releaseNotes>
+    <copyright>Copyright ©  2015</copyright>
+  </metadata>
+  <files>
+    <file src="Wiki.Service.Configuration.*" target="lib\net45" />
+  </files>
+</package>

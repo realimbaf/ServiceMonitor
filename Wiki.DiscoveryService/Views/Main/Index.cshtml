@@ -1,0 +1,178 @@
+﻿  
+    <div style="position: fixed; top: 5px; left: 15px; right: 15px; z-index: 9999">
+        <div data-bind="foreach: alerts">
+            <div data-bind="alert: $data" role="alert"></div>
+        </div>
+    </div>
+
+    <h3>Настройка мониторов</h3>
+
+    <ul class="nav nav-tabs">
+        <li role="presentation" data-bind="css:{'active':isHostsTab}"><a data-bind="click:function(){isHostsTab(true);}">Доступные хосты</a></li>
+        <li role="presentation" data-bind="css:{'active':isServiceTab}"><a data-bind="click:function(){isServiceTab(true);}">Доступные службы</a></li>
+        <li role="presentation" data-bind="css:{'active':isNetworkTab}"><a data-bind="click:function(){isNetworkTab(true);}">Сетевые настройки хостов</a></li>
+        <li role="presentation" data-bind="css:{'active':isLogTab}"><a data-bind="click:function(){isLogTab(true);}">Логи</a></li>
+    </ul>
+    <br/>
+    <div data-bind="with:hostsModel">
+        <div>
+            <button class="btn btn-primary" data-bind="click:load">Обновить</button>
+        </div>
+        <br/>
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <th></th>
+                <th>Hostname</th>
+                <th>Monitor Url</th>
+                <th>RemoteIp</th>
+                <th>Last Broadcast</th>
+                <th>Last Update</th>
+                <th>IsActive</th>
+                <th>IsDebug</th>
+                <th>IsDirect</th>
+            </tr>
+            </thead>
+            <tbody data-bind="foreach:hostsArray">
+            <tr>
+                <td>
+                    <span data-bind="click:isExpandTrigger,css:isExpand()?'btn glyphicon glyphicon-minus':'btn glyphicon glyphicon-plus'"></span>
+                    <ul class="list-group" data-bind="foreach:services,visible:isExpand">
+                        <li class="list-group-item">
+                            <span data-bind="text:Id"></span>
+                        </li>
+                    </ul>
+                </td>
+                <td><a href="" data-bind="text:hostName"></a></td>
+                <td data-bind="text:monitorUrl"></td>
+                <td data-bind="text:remoteIp"></td>
+                <td data-bind="text:lastBroadcast"></td>
+                <td data-bind="text:lastUpdate"></td>
+                <td data-bind="text:isActive,css: isActive() == false ? 'error' : 'default'"></td>
+                <td data-bind="text:isDebug"></td>
+                <td data-bind="text:isDirect"></td>
+            </tr>
+            </tbody>
+        </table>
+
+    </div>
+    <div data-bind="with:networkSettingsmodel">
+        <div>
+            <button class="btn btn-primary" data-bind="click:load">Обновить</button>
+        </div>
+        <br/>
+        <table class="table table-hover">
+            <thead>
+            <tr>
+                <th></th>
+                <th>Hostname</th>
+                <th>Monitor Url</th>
+                <th>IsDebug</th>
+                <th>IsDirect</th>
+                <th></th>
+                <th></th>
+                <th></th>
+            </tr>
+            </thead>
+            <tbody data-bind="foreach:networkArray">
+            <tr>
+                <td></td>
+                <td><input class="form-control" data-bind="value:hostName, attr: {disabled: isDisabled }"/></td>
+                <td><input class="form-control" data-bind="value:monitorUrl, attr: {disabled: isDisabled }"/></td>
+                <td><input class="form-control" data-bind="value:isDebug, attr: {disabled: isDisabled }"/></td>
+                <td><input class="form-control" data-bind="value:isDirect, attr: {disabled: isDisabled }"/></td>
+                <td>
+                    <a href="#" data-toggle="tooltip" data-placement="top" title="save">
+                        <span class="btn btn-default glyphicon glyphicon-save" data-bind="click:$parent.add,visible:isVisibleSaveButton"></span>
+                    </a>
+                </td>
+                <td>
+                    <a href="#" data-toggle="tooltip" data-placement="top" title="update">
+                        <span class="btn btn-default glyphicon glyphicon-refresh" data-bind="click:isDisabledTrigger"></span>
+                    </a>
+                </td>
+                <td>
+                    <a href="#" data-toggle="tooltip" data-placement="top" title="delete">
+                        <span class="btn btn-default glyphicon glyphicon-remove" data-bind="click:$parent.remove"></span>
+                    </a>
+                </td>
+            </tr>
+            </tbody>
+        </table>
+        <div>
+            <button class="btn btn-primary" data-bind="click:addHost">Добавить хост</button>
+        </div>
+    </div>
+<div data-bind="with:logModel">
+    <table class="table table-hover">
+        <thead>
+        <tr>
+            <th>Лог</th>
+            <th>Действия</th>
+        </tr>
+        </thead>
+        <tbody data-bind="foreach:files">
+        <tr>
+            <td>
+                <a data-bind="text:logName,attr:{href:'api/logs/'+logName()}"></a>
+            </td>
+            <td>
+                <button class="btn btn-primary" data-bind="click:getLog">Посмотреть</button>
+                <div class="jumbotron logPanel" data-bind="visible:file">
+                    <button class="btn" data-bind="click:function(){file('');}">Закрыть</button>
+                    <br/>
+                    <span data-bind="text:logName"></span>
+                    <pre class="logContent" data-bind="text:file"></pre>
+                </div>
+            </td>
+
+        </tr>
+        </tbody>
+    </table>
+
+</div>
+
+<div data-bind="with:serviceModel">
+    <div>
+        <button class="btn btn-primary" data-bind="click:load">Обновить</button>
+    </div>
+    <div data-bind="foreach:servicesArray">
+        <div class="col-md-1">
+            <span data-bind="click:isExpandTrigger,css:isExpand()?'btn glyphicon glyphicon-minus':'btn glyphicon glyphicon-plus'"></span>
+        </div>
+        <div class="col-md-11">
+            <ul class="list-group">
+                <li class="list-group-item">
+                    <span data-bind="text:serviceName"></span>
+                </li>
+            </ul>
+            <table class="table table-hover" data-bind="visible:isExpand">
+                <thead>
+                    <tr>
+                        <th>Hostname</th>
+                        <th>Monitor Url</th>
+                        <th>RemoteIp</th>
+                        <th>Last Broadcast</th>
+                        <th>Last Update</th>
+                        <th>IsActive</th>
+                        <th>IsDebug</th>
+                        <th>IsDirect</th>
+                    </tr>
+                </thead>
+                <tbody data-bind="foreach:hostsArray">
+                    <tr>
+                        <td data-bind="text:Hostname"></td>
+                        <td data-bind="text:MonitorUrl"></td>
+                        <td data-bind="text:RemoteIp"></td>
+                        <td data-bind="text:LastBroadcast"></td>
+                        <td data-bind="text:LastUpdate"></td>
+                        <td data-bind="text:IsActive,css: IsActive == false ? 'error' : 'default'"></td>
+                        <td data-bind="text:IsDebug"></td>
+                        <td data-bind="text:IsDirect"></td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+</div>

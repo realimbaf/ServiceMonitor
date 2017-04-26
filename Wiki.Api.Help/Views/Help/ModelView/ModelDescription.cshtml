@@ -1,0 +1,57 @@
+﻿@using Wiki.Api.Help.Controllers.Help.Model
+@using Wiki.Api.Help.Extensions
+@using Wiki.Api.Help.Model
+@model dynamic
+
+@if (Model is SimpleTypeModelDescription)
+{
+    @Model.Documentation
+}
+else if (Model is KeyValuePairModelDescription)
+{
+    <text>
+        Pair of @Include("Help.ModelView.ModelDescriptionLink.cshtml", Model.KeyModelDescription) [key]
+        and @Include("Help.ModelView.ModelDescriptionLink.cshtml", Model.ValueModelDescription) [value]
+    </text>
+}
+else if (Model is EnumTypeModelDescription)
+{
+    <text>
+    <span>Possible enumeration values:</span>
+    <table class="help-page-table">
+        <thead>
+            <tr><th><h5>Name</h5></th><th><h5>Value</h5></th><th><h5>Description</h5></th></tr>
+        </thead>
+        <tbody>
+        @foreach (EnumValueDescription value in Model.Values)
+        {
+            <tr>
+                <td>@value.Name</td>
+                <td>@value.Value</td>
+                <td>@value.Documentation</td>
+            </tr>
+        }
+        </tbody>
+    </table>
+    </text>
+}
+else if (Model is ComplexTypeModelDescription)
+{
+    @Include("Help.ModelView.Parameters.cshtml", Model.Properties)
+
+}
+else if (Model is CollectionModelDescription && Model.ElementDescription is ComplexTypeModelDescription)
+{
+    @Include("Help.ModelView.ModelDescription.cshtml", Model.ElementDescription)
+}
+else if (Model is DictionaryModelDescription)
+{
+    <text>
+        Dictionary of @Include("Help.ModelView.ModelDescriptionLink.cshtml", Model.KeyModelDescription) [key]
+        and @Include("Help.ModelView.ModelDescriptionLink.cshtml", Model.ValueModelDescription) [value]
+    </text>
+}
+else
+{
+    @Model.Name
+}

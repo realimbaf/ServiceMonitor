@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<package xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <metadata>
+    <dependencies>
+      <group>
+        <dependency id="Wiki.Core" version="[1.0.16105.02,1.1)" />
+        <dependency id="Wiki.ApiClient.Core" version="[1.0.16154.01,1.1)" />
+        <dependency id="Wiki.Service.Common" version="[1.0.16025.01,1.1)" />
+      </group>
+    </dependencies>
+    <id>Wiki.Service.Common.Clients</id>
+    <version>1.0.16176.02</version>
+    <title>Wiki.Service.Common.Clients</title>
+    <authors>LAF</authors>
+    <owners>LAF</owners>
+    <description>Base client for services</description>
+    <language />
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <developmentDependency>false</developmentDependency>
+    <releaseNotes>
+      Version 1.0.16272 (28.09.2016)
+      ServiceClientBase _handler set protectes
+      Version 1.0.16176 (24.06.2016)
+      update ServiceClientBase
+      Version 1.0.16140 (19.05.2016)
+      update WikiExceptionFilterAttribute
+      Version 1.0.16019 (19.01.2016)
+      Added GetUrlParams extension
+      Version 1.0.15194 (13.07.2015)
+      Added GetIdentityServerUrlAsync
+      Version 1.0.15174 (23.06.2015)
+      [+]Create new package
+    </releaseNotes>
+    <copyright>Copyright ©  2015</copyright>
+  </metadata>
+  <files>
+    <file src="Wiki.Service.Common.Clients.*" target="lib\portable-net45+wp80+win8+wpa81" />
+    <file src="Wiki.Service.Common.Clients.*" target="lib\net45" />
+  </files>
+</package>

@@ -1,0 +1,193 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Wiki.Service.Common.Clients</name>
+    </assembly>
+    <members>
+        <member name="T:Wiki.Service.Common.Clients.AccessTokenResponse">
+            <summary>
+            AccessTokenResponse
+            </summary>
+        </member>
+        <member name="P:Wiki.Service.Common.Clients.AccessTokenResponse.Token">
+            <summary>
+            Token
+            </summary>
+        </member>
+        <member name="P:Wiki.Service.Common.Clients.AccessTokenResponse.Expires">
+            <summary>
+            Expires
+            </summary>
+        </member>
+        <member name="P:Wiki.Service.Common.Clients.AccessTokenResponse.TokenType">
+            <summary>
+            TokenType
+            </summary>
+        </member>
+        <member name="P:Wiki.Service.Common.Clients.AccessTokenResponse.IsError">
+            <summary>
+            IsError
+            </summary>
+        </member>
+        <member name="P:Wiki.Service.Common.Clients.AccessTokenResponse.Error">
+            <summary>
+            Error
+            </summary>
+        </member>
+        <member name="T:Wiki.Service.Common.Clients.DiscoveryFactory">
+            <summary>
+            Фабрика для DiscoveryService
+            </summary>
+        </member>
+        <member name="M:Wiki.Service.Common.Clients.DiscoveryFactory.SetDefaultCreditenals(Wiki.Service.Common.Clients.ClientCreditenals)">
+            <summary>
+            Устанавливает параметры аутентификации по умолчанию
+            </summary>
+            <param name="cred"></param>
+        </member>
+        <member name="M:Wiki.Service.Common.Clients.DiscoveryFactory.GetDefaultCreditenals">
+            <summary>
+            Получает параметры аутентификации по умолчанию
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Wiki.Service.Common.Clients.DiscoveryFactory.GetToken(System.String)">
+            <summary>
+            Получает новый токен
+            </summary>
+            <param name="identityServerUrl"></param>
+            <returns></returns>
+        </member>
+        <member name="M:Wiki.Service.Common.Clients.DiscoveryFactory.GetToken(System.String,System.String,System.String)">
+            <summary>
+            Получает новый токен
+            </summary>
+            <param name="clientId"></param>
+            <param name="clientSecret"></param>
+            <param name="identityServerUrl"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Wiki.Service.Common.Clients.ClientCreditenals">
+            <summary>
+            Параметры аутентификации слиента
+            </summary>
+        </member>
+        <member name="P:Wiki.Service.Common.Clients.ClientCreditenals.ClientId">
+            <summary>
+            Id клиента (логин)
+            </summary>
+        </member>
+        <member name="P:Wiki.Service.Common.Clients.ClientCreditenals.ClientSecret">
+            <summary>
+            Секретный ключ (пароль)
+            </summary>
+        </member>
+        <member name="T:Wiki.Service.Common.Clients.HttpExtension">
+            <summary>
+            Расширение для HTTP
+            </summary>
+        </member>
+        <member name="M:Wiki.Service.Common.Clients.HttpExtension.GetUrlParams``1(``0)">
+            <summary>
+            Преобразовывает содержимое объекта к строке параметров GET запроса
+            </summary>
+            <typeparam name="T"></typeparam>
+            <param name="value"></param>
+            <returns></returns>
+        </member>
+        <member name="T:Wiki.Service.Common.Clients.ServiceClientBase">
+            <summary>
+            Базовый клиент сервиса
+            </summary>
+        </member>
+        <member name="M:Wiki.Service.Common.Clients.ServiceClientBase.#ctor(System.String,System.String,System.String)">
+            <summary>
+            
+            </summary>
+            <param name="discoveryAdress"></param>
+            <param name="clientId"></param>
+            <param name="clientSecret"></param>
+        </member>
+        <member name="P:Wiki.Service.Common.Clients.ServiceClientBase.ServiceId">
+            <summary>
+            Id сервиса, к которому обращается клиент
+            </summary>
+        </member>
+        <member name="M:Wiki.Service.Common.Clients.ServiceClientBase.GetClient">
+            <summary>
+            Возвращает подготовленный <see cref="T:System.Net.Http.HttpClient"/> для отправки запроса
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Wiki.Service.Common.Clients.ServiceClientBase.Dispose">
+            <summary>
+            
+            </summary>
+        </member>
+        <member name="P:Wiki.Service.Common.Clients.ServiceClientBase.FullUrl">
+            <summary>
+            Начало пути (префикс) URL контроллера
+            </summary>
+        </member>
+        <member name="M:Wiki.Service.Common.Clients.ServiceClientBase.PostData``1(System.String,System.Object)">
+             <summary>
+             Асинхронно отправляет данные методом POST по адресу <see cref="!:this.FullUrl"/>+<see cref="!:command"/>
+             </summary>
+             <typeparam name="T">Тип, к которому будет приведен результат</typeparam>
+             <param name="command">Адресс запроса</param>
+             <param name="model">Данные, которые будут отправленны в запросе</param>
+             <returns>Ответ сервиса приведенный к типу <see cref="!:T"/></returns>
+            <exception cref="T:Wiki.Core.Exceptions.WikiApiException"></exception>
+        </member>
+        <member name="M:Wiki.Service.Common.Clients.ServiceClientBase.PostData(System.String,System.Object)">
+             <summary>
+             Асинхронно отправляет данные методом POST по адресу <see cref="!:this.FullUrl"/>+<see cref="!:command"/> без получения результата.
+             </summary>
+             <param name="command">Адресс запроса</param>
+             <param name="model">Данные, которые будут отправленны в запросе</param>
+             <returns></returns>
+            <exception cref="T:Wiki.Core.Exceptions.WikiApiException"></exception>
+        </member>
+        <member name="M:Wiki.Service.Common.Clients.ServiceClientBase.HttpPostAsync(System.String,System.Object)">
+             <summary>
+             Асинхронно отправляет данные методом POST по адресу <see cref="!:this.FullUrl"/>+<see cref="!:command"/>
+             </summary>
+             <param name="command">Адресс запроса</param>
+             <param name="model">Данные, которые будут отправленны в запросе</param>
+             <returns></returns>
+            <exception cref="T:Wiki.Core.Exceptions.WikiApiException"></exception>
+        </member>
+        <member name="M:Wiki.Service.Common.Clients.ServiceClientBase.GetData``1(System.String,System.Object)">
+             <summary>
+             Асинхронно отправляет данные методом GET по адресу <see cref="!:this.FullUrl"/>+<see cref="!:command"/>
+             </summary>
+             <typeparam name="T">Тип, к которому будет приведен результат</typeparam>
+             <param name="model">Данные, которые будут отправленны в запросе</param>
+             <param name="command">Адресс запроса</param>
+             <returns>Ответ сервиса приведенный к типу <see cref="!:T"/></returns>
+            <exception cref="T:Wiki.Core.Exceptions.WikiApiException"></exception>
+        </member>
+        <member name="M:Wiki.Service.Common.Clients.ServiceClientBase.GetData``1(System.String)">
+             <summary>
+             Асинхронно отправляет данные методом GET по адресу <see cref="!:this.FullUrl"/>+<see cref="!:command"/>
+             </summary>
+             <typeparam name="T">Тип, к которому будет приведен результат</typeparam>
+             <param name="command">Адресс запроса</param>
+             <returns>Ответ сервиса приведенный к типу <see cref="!:T"/></returns>
+            <exception cref="T:Wiki.Core.Exceptions.WikiApiException"></exception>
+        </member>
+        <member name="M:Wiki.Service.Common.Clients.ServiceClientBase.HttpGetAsync(System.String)">
+             <summary>
+             Асинхронно отправляет данные методом GET по адресу <see cref="!:this.FullUrl"/>+<see cref="!:command"/>
+             </summary>
+             <param name="command">Адресс запроса</param>
+             <returns></returns>
+            <exception cref="T:Wiki.Core.Exceptions.WikiApiException"></exception>
+        </member>
+        <member name="T:Wiki.Service.Common.Clients.ServiceHttpClient">
+            <summary>
+            
+            </summary>
+        </member>
+    </members>
+</doc>

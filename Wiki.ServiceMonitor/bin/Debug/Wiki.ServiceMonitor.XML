@@ -1,0 +1,50 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Wiki.ServiceMonitor</name>
+    </assembly>
+    <members>
+        <member name="T:Wiki.ServiceMonitor.Controllers.LogController">
+            <summary>
+            Получение лог файлов
+            </summary>
+        </member>
+        <member name="M:Wiki.ServiceMonitor.Controllers.LogController.GetLogFiles">
+            <summary>
+            Фозвращает список всех логов
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Wiki.ServiceMonitor.Controllers.LogController.GetLogByService(System.String)">
+            <summary>
+            Фозвращает список всех логов
+            </summary>
+            <returns></returns>
+        </member>
+        <member name="M:Wiki.ServiceMonitor.Controllers.LogController.GetLogFile(System.String)">
+            <summary>
+            Получить окнкретнйы лог
+            </summary>
+            <example>dsfsdfsdfasd</example>
+            <param name="file"></param>
+            <returns></returns>
+        </member>
+        <member name="F:Wiki.ServiceMonitor.MonitorService.components">
+            <summary> 
+            Требуется переменная конструктора.
+            </summary>
+        </member>
+        <member name="M:Wiki.ServiceMonitor.MonitorService.Dispose(System.Boolean)">
+            <summary>
+            Освободить все используемые ресурсы.
+            </summary>
+            <param name="disposing">истинно, если управляемый ресурс должен быть удален; иначе ложно.</param>
+        </member>
+        <member name="M:Wiki.ServiceMonitor.MonitorService.InitializeComponent">
+            <summary> 
+            Обязательный метод для поддержки конструктора - не изменяйте 
+            содержимое данного метода при помощи редактора кода.
+            </summary>
+        </member>
+    </members>
+</doc>

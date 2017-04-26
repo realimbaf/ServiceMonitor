@@ -1,0 +1,29 @@
+<?xml version="1.0" encoding="utf-8" ?>
+<package xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:xsd="http://www.w3.org/2001/XMLSchema">
+  <metadata>
+    <id>Wiki.Api.Help</id>
+    <version>1.0.15266.05</version>
+    <title>Wiki.Api.Help</title>
+    <authors>LAF</authors>
+    <owners>LAF</owners>
+    <description>Wiki.Api.Help for generated help pages</description>
+    <language />
+    <dependencies>
+      <group targetFramework="net45">
+        <dependency id="Wiki.Core" version="[1.0.15142.03,1.2)" />
+        <dependency id="Microsoft.Owin.StaticFiles" version="[3.0.1.0,3.2)" />
+        <dependency id="RazorEngine" version="[3.7.0.0,3.8)" />
+      </group>
+    </dependencies>
+    <requireLicenseAcceptance>false</requireLicenseAcceptance>
+    <developmentDependency>false</developmentDependency>
+    <releaseNotes>
+      Version 1.0.15145 (23.09.2015)
+      Create new package
+    </releaseNotes>
+    <copyright>Copyright ?  2015</copyright>
+  </metadata>
+  <files>
+    <file src="Wiki.Api.Help.*" target="lib\net45" />
+  </files>
+</package>

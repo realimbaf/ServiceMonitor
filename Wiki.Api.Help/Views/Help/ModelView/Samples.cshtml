@@ -1,0 +1,50 @@
+﻿@using System
+@using System.Collections.Generic
+@using System.Linq
+@using System.Net.Http.Headers
+@using Wiki.Api.Help.Extensions
+@model dynamic
+
+@{
+    var tModel = (Dictionary<MediaTypeHeaderValue, object>) Model;
+    
+    // Group the samples into a single tab if they are the same.
+    Dictionary<string, object> samples = tModel.GroupBy(pair => pair.Value).ToDictionary(
+        pair => String.Join(", ", pair.Select(m => m.Key.ToString()).ToArray()),
+        pair => pair.Key);
+    var mediaTypes = samples.Keys;
+}
+
+@foreach (var mediaType in mediaTypes)
+{
+    <h5 class="sample_header">@mediaType</h5>
+    <div class="sample_content">
+        <h6>Sample:</h6>
+        @{
+    var sample = samples[mediaType];
+    if (sample == null)
+    {
+        <span>Sample not available.</span>
+    }
+    else
+    {
+        if (sample is TextSample)
+        {
+                    <pre class="wrapped">@(((TextSample) sample).Text)</pre>
+                }
+                else if (sample is InvalidSample)
+                {
+                    <div class="warning_container">
+                        <p>@(((InvalidSample)sample).ErrorMessage)</p>
+                    </div>
+                }
+                else
+                {
+                    @:Html.DisplayFor(s => sample);
+                    @sample.GetType()
+
+                }
+            }
+        }
+    </div>
+}

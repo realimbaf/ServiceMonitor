@@ -1,0 +1,58 @@
+﻿@using System.Linq
+@using System.Web.Http.Controllers
+@using System.Web.Http.Description
+@using System.Collections.ObjectModel
+@using Owin
+@using Wiki.Api.Help
+@using Wiki.Api.Help.Extensions
+@model dynamic
+@{
+var tModel = (IGrouping<HttpControllerDescriptor, ApiDescription>) Model;
+    var controllerDocumentation = ViewBag.DocumentationProvider != null ?
+        ViewBag.DocumentationProvider.GetDocumentation(tModel.Key) :
+        null;
+}
+
+<h3 class="filial_title" id="@tModel.Key.ControllerName">@tModel.Key.ControllerName</h3>
+@if (!string.IsNullOrEmpty(controllerDocumentation))
+{
+    <p>@controllerDocumentation</p>
+}
+<table class="help-page-table">
+    <thead>
+    <tr>
+        <th width="30%"><h5>API методы</h5></th>
+        <th width="40%"><h5>Описание</h5></th>
+        @if (@tModel.Key.IsShowOpenUrl())
+        {
+            <th><h5>Открыть URL</h5></th>
+        }
+    </tr>
+    </thead>
+    <tbody>
+        @foreach (var api in tModel)
+        {
+            <tr>
+                <td>
+                    <a href="/help/apidoc/@api.GetFriendlyId()">@api.HttpMethod.Method @api.RelativePath</a>
+                </td>
+                <td>
+                    @if (api.Documentation != null)
+                    {
+                        <span>@api.Documentation</span>
+                    }
+                    else
+                    {
+                        <span>Документация не доступна.</span>
+                    }
+                </td>
+@if (@tModel.Key.IsShowOpenUrl())
+{ 
+                <td>
+                    <a href="@api.RelativePath">Open @api.HttpMethod.Method @api.RelativePath</a>
+                </td>
+}
+            </tr>
+        }
+    </tbody>
+</table>

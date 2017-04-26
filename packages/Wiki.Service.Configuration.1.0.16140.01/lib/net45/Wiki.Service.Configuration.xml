@@ -1,0 +1,30 @@
+<?xml version="1.0"?>
+<doc>
+    <assembly>
+        <name>Wiki.Service.Configuration</name>
+    </assembly>
+    <members>
+        <member name="T:Wiki.Service.Configuration.IServiceConfig">
+            <summary>
+            Предоставляет настройку службы
+            </summary>
+        </member>
+        <member name="M:Wiki.Service.Configuration.IServiceConfig.Init(Owin.IAppBuilder,System.Web.Http.HttpConfiguration)">
+            <summary>
+            Вызывается при конфигурировании web api
+            </summary>
+            <param name="app"></param>
+            <param name="config"></param>
+        </member>
+        <member name="M:Wiki.Service.Configuration.IServiceConfig.Start">
+            <summary>
+            Запускает фоновые процессы
+            </summary>
+        </member>
+        <member name="M:Wiki.Service.Configuration.IServiceConfig.Stop">
+            <summary>
+            Останавливает фоновые процессы
+            </summary>
+        </member>
+    </members>
+</doc>

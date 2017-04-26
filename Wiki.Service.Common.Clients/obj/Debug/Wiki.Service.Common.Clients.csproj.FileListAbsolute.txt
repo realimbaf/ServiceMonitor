@@ -1,0 +1,17 @@
+D:\Projects\WikiRepo\Wiki.Services\Wiki.Service.Common.Clients\bin\Debug\Wiki.Service.Common.Clients.dll.config
+D:\Projects\WikiRepo\Wiki.Services\Wiki.Service.Common.Clients\bin\Debug\Wiki.Service.Common.Clients.XML
+D:\Projects\WikiRepo\Wiki.Services\Wiki.Service.Common.Clients\bin\Debug\Wiki.Service.Common.Clients.dll
+D:\Projects\WikiRepo\Wiki.Services\Wiki.Service.Common.Clients\bin\Debug\Wiki.Service.Common.Clients.pdb
+D:\Projects\WikiRepo\Wiki.Services\Wiki.Service.Common.Clients\bin\Debug\Newtonsoft.Json.dll
+D:\Projects\WikiRepo\Wiki.Services\Wiki.Service.Common.Clients\bin\Debug\Wiki.ApiClient.Core.dll
+D:\Projects\WikiRepo\Wiki.Services\Wiki.Service.Common.Clients\bin\Debug\Wiki.Core.dll
+D:\Projects\WikiRepo\Wiki.Services\Wiki.Service.Common.Clients\bin\Debug\Wiki.Service.Common.dll
+D:\Projects\WikiRepo\Wiki.Services\Wiki.Service.Common.Clients\bin\Debug\Newtonsoft.Json.xml
+D:\Projects\WikiRepo\Wiki.Services\Wiki.Service.Common.Clients\bin\Debug\Wiki.ApiClient.Core.pdb
+D:\Projects\WikiRepo\Wiki.Services\Wiki.Service.Common.Clients\bin\Debug\Wiki.ApiClient.Core.xml
+D:\Projects\WikiRepo\Wiki.Services\Wiki.Service.Common.Clients\bin\Debug\Wiki.Core.pdb
+D:\Projects\WikiRepo\Wiki.Services\Wiki.Service.Common.Clients\bin\Debug\Wiki.Core.xml
+D:\Projects\WikiRepo\Wiki.Services\Wiki.Service.Common.Clients\bin\Debug\Wiki.Service.Common.pdb
+D:\Projects\WikiRepo\Wiki.Services\Wiki.Service.Common.Clients\obj\Debug\Wiki.Service.Common.Clients.csprojResolveAssemblyReference.cache
+D:\Projects\WikiRepo\Wiki.Services\Wiki.Service.Common.Clients\obj\Debug\Wiki.Service.Common.Clients.dll
+D:\Projects\WikiRepo\Wiki.Services\Wiki.Service.Common.Clients\obj\Debug\Wiki.Service.Common.Clients.pdb

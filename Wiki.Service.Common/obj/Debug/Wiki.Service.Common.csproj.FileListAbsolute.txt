@@ -1,0 +1,6 @@
+D:\Projects\WikiRepo\Wiki.Services\Wiki.Service.Common\bin\Debug\Wiki.Service.Common.dll
+D:\Projects\WikiRepo\Wiki.Services\Wiki.Service.Common\bin\Debug\Wiki.Service.Common.pdb
+D:\Projects\WikiRepo\Wiki.Services\Wiki.Service.Common\bin\Debug\Newtonsoft.Json.dll
+D:\Projects\WikiRepo\Wiki.Services\Wiki.Service.Common\bin\Debug\Newtonsoft.Json.xml
+D:\Projects\WikiRepo\Wiki.Services\Wiki.Service.Common\obj\Debug\Wiki.Service.Common.dll
+D:\Projects\WikiRepo\Wiki.Services\Wiki.Service.Common\obj\Debug\Wiki.Service.Common.pdb
